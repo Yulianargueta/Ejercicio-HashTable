@@ -1,0 +1,30 @@
+class HashTable {
+    constructor(size){
+        this.data= new Array(size);
+    }
+    hasMethod (key){
+        let hash = 0;
+        for(let i = 0; i < key.length; i++ ){
+            hash = (key.charCodeAt (i)*i)% this.data.length;
+    }
+        return hash % this.data.length;
+    }
+     set (key, value){
+
+         const addres = this.hasMethod(key);
+         if (!this.data[addres]){
+             this.data[addres]=[];
+         }
+
+         this.data [addres].push([key, value]);
+         return this.data;
+  }
+    get(key){
+        
+    }
+}
+
+const myHashTable = new HashTable(50);
+myHashTable.set("Maria",1979)
+myHashTable.set("Donald",1990)
+myHashTable.set("Emily",2003)
